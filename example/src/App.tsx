@@ -7,10 +7,10 @@ export default function App() {
   return (
     <View style={styles.container}>
       <NativeImageView
-       url="/storage/emulated/0/Download/Test.jpg"
-       radius="20"
-       style={styles.box}
-        />
+        url="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
+        radius="20"
+        style={styles.box}
+      />
     </View>
   );
 }
@@ -22,8 +22,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   box: {
-    width: 200,
-    height: 200,
+    width: 300,
+    height: 300,
     marginVertical: 20,
   },
 });
