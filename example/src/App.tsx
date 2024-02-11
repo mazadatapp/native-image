@@ -6,7 +6,11 @@ import { NativeImageView } from 'native-image';
 export default function App() {
   return (
     <View style={styles.container}>
-      <NativeImageView color="#32a852" style={styles.box} />
+      <NativeImageView
+       url="/storage/emulated/0/Download/Test.jpg"
+       radius="20"
+       style={styles.box}
+        />
     </View>
   );
 }
@@ -18,8 +22,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   box: {
-    width: 60,
-    height: 60,
+    width: 200,
+    height: 200,
     marginVertical: 20,
   },
 });

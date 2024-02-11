@@ -1,16 +1,21 @@
 package com.nativeimage;
 
-import android.graphics.Color;
+import android.net.Uri;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 
+import com.bumptech.glide.Glide;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
+import com.makeramen.roundedimageview.RoundedImageView;
 
-public class NativeImageViewManager extends SimpleViewManager<View> {
+import java.io.File;
+
+public class NativeImageViewManager extends SimpleViewManager<RoundedImageView> {
   public static final String REACT_CLASS = "NativeImageView";
+  ThemedReactContext reactContext;
 
   @Override
   @NonNull
@@ -20,12 +25,26 @@ public class NativeImageViewManager extends SimpleViewManager<View> {
 
   @Override
   @NonNull
-  public View createViewInstance(ThemedReactContext reactContext) {
-    return new View(reactContext);
+  public RoundedImageView createViewInstance(ThemedReactContext reactContext) {
+    this.reactContext = reactContext;
+    return new RoundedImageView(reactContext);
   }
 
-  @ReactProp(name = "color")
-  public void setColor(View view, String color) {
-    view.setBackgroundColor(Color.parseColor(color));
+  @ReactProp(name = "url")
+  public void setUrl(RoundedImageView image, String url) {
+    if (url.startsWith("http")) {
+      Glide.with(image).load(url).into(image);
+    } else {
+      if(url.startsWith("file://")){
+        url = url.replace("file://","");
+      }
+      url =url.replace(" ", "\\ ");
+      image.setImageURI(Uri.fromFile(new File(url)));
+    }
+  }
+
+  @ReactProp(name = "radius")
+  public void setRadius(RoundedImageView image, String radius) {
+    image.setCornerRadius(Float.parseFloat(radius));
   }
 }
