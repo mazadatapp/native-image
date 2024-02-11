@@ -7,8 +7,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <NativeImageView
-        url="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
-        radius="20"
+        url="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?cs=srgb&dl=pexels-italo-melo-2379004.jpg&fm=jpg"
         style={styles.box}
       />
     </View>
@@ -22,8 +21,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   box: {
-    width: 300,
+    width: 198,
     height: 300,
     marginVertical: 20,
+    borderRadius: 30
   },
 });

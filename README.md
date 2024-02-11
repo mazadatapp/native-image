@@ -15,7 +15,7 @@ import { NativeImageView } from "native-image";
 
 // ...
 
-<NativeImageView color="tomato" />
+<NativeImageView url="url or path" />
 ```
 
 ## Contributing
