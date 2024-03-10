@@ -1,6 +1,6 @@
 {
   "name": "native-image",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "native image library",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
