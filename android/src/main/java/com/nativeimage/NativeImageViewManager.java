@@ -32,8 +32,10 @@ public class NativeImageViewManager extends SimpleViewManager<RoundedImageView> 
 
   @ReactProp(name = "url")
   public void setUrl(RoundedImageView image, String url) {
+
     image.setScaleType(ImageView.ScaleType.CENTER_CROP);
     image.setBackgroundColor(Color.TRANSPARENT);
+    
     if (url.startsWith("http")) {
       Glide.with(image).load(url).into(image);
     } else {
